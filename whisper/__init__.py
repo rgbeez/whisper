@@ -93,8 +93,15 @@ def load_model(name: str, device: Optional[Union[str, torch.device]] = None, dow
 
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
+    download_root = 'D:\whisper'
     if download_root is None:
-        download_root = d:\,
+        download_root = os.path.join(
+            os.getenv(
+                "XDG_CACHE_HOME",
+                os.path.join(
+                    os.path.expanduser("~"), ".cache"
+                )
+            ),
             "whisper"
         )
 
